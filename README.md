@@ -4,7 +4,7 @@
 
 * [Instructions](#instructions)
 * [Contributing](#contributing)
-* [My editions](#whatiadded)
+* [My editions](#what-i-added)
 
 ## Instructions
 
