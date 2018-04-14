@@ -33,31 +33,33 @@ form.addEventListener('submit', function(event){
 // This way, we only need one event listener
 canvas.addEventListener('click', function(event){
 
-	if (event.target.tagName === 'TD') {
+	let tg = event.target;
+
+	if (tg.tagName === 'TD') {
 
 		// if the targetted element does not yet have a style tag yet,
 		// it must still be empty, so we can give it a color
-		if (!event.target.hasAttribute('style')) {
+		if (!tg.hasAttribute('style')) {
 
-			event.target.style.backgroundColor = inputColor.value;
+			tg.style.backgroundColor = inputColor.value;
 			// add an extra attribute to check for different colors later on
-			event.target.setAttribute('chosen-color', inputColor.value.toString());
+			tg.setAttribute('chosen-color', inputColor.value.toString());
 
 		} else {
 
 			// if it does have a style tag, check the chosen-color attribute
 			// to see if the color is the same as the picked color
-			if (event.target.getAttribute('chosen-color') === inputColor.value.toString()) {
+			if (tg.getAttribute('chosen-color') === inputColor.value.toString()) {
 
 				// if it is the same, we can handle this as an 'eraser' event
-				event.target.removeAttribute('style');
-				event.target.removeAttribute('chosen-color');
+				tg.removeAttribute('style');
+				tg.removeAttribute('chosen-color');
 
 			} else {
 
 				// if it is not the same, just change the color to the new one
-				event.target.style.backgroundColor = inputColor.value;
-				event.target.setAttribute('chosen-color', inputColor.value.toString());
+				tg.style.backgroundColor = inputColor.value;
+				tg.setAttribute('chosen-color', inputColor.value.toString());
 			}
 		}
 	}
